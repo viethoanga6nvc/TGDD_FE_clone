@@ -1,0 +1,11 @@
+.menu {
+    background:#fed100;
+    font-size: 20px;
+    font-weight: bold;
+}
+.menu a {
+    color: black;
+}
+span {
+    margin-right: 5px;
+}
