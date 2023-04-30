@@ -15,32 +15,203 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="navbar menu">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="./HomePage.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./AdminPage.html">Admin</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
+        <!-- Menu -->
+        <div class="MenuSection">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="navbar menu">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="../Home/HomePage.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="../Admin/AdminPage.html">Admin</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <!-- <li>
                             <a href="#" style="padding-right:20px;"><span
                                     class="glyphicon glyphicon-log-in"></span>Login</a>
                         </li>
                         <li>
                             <a href="#"><span class="glyphicon glyphicon-user"></span>Sign
                                 Up</a>
-                        </li>
-
-                    </ul>
+                        </li> -->
+                            <li>
+                                <a href="#" style="padding-right:20px;"><span
+                                        class="glyphicon glyphicon-log-out"></span>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Detail -->
+        <div class="DetailSection">
+            <div class="row">
+                <!-- SideBar -->
+                <div class="SideBarSection">
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <!-- Danh mục -->
+                        <h4 style="font-weight: bold;">Danh mục</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">Manufacturer</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">Category</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">Product</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">Account</button>
+                            </li>
+                        </ul>
+
+                        <!-- Filter theo manufacturers -->
+                        <h4 style="font-weight: bold;">Manufacturer</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">SAMSUNG</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">APPLE</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">XIAOMI</button>
+                            </li>
+                            <li class="list-group-item">
+                                <button type="button" class="btnClass">OPPO</button>
+                            </li>
+                        </ul>
+
+                        <!-- Filter theo categories -->
+                        <h4 style="font-weight: bold;">categories</h4>
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <select class="form-control">
+                                    <option value="">-- Select Category</option>
+                                    <option value="1">Điện thoại</option>
+                                    <option value="2">Tabet</option>
+                                    <option value="3">Laptop</option>
+                                </select>
+                                <br>
+                                <button type="button" class="btn btn-default">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="ProductAdminSection">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <br>
+                        <br>
+
+                        <!-- Search -->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                            <button type="button" class="btn btn-success">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table Result -->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <!-- Add New -->
+                                        <button type="button" class="btn btn-info">Add New</button>
+                                        <!-- Table -->
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Info</th>
+                                                    <th>Detail</th>
+                                                    <th>Star</th>
+                                                    <th>Image</th>
+                                                    <th>NSX</th>
+                                                    <th>Category</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Row 1 -->
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Samsung Galaxy S22 Ultra 5G</td>
+                                                    <td>30.998.000₫</td>
+                                                    <td>6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, ram 4G, Pin
+                                                        7000 mAh</td>
+                                                    <td>ProductDetail1</td>
+                                                    <td>5</td>
+                                                    <td>image1.jpg</td>
+                                                    <td>SAMSUNG</td>
+                                                    <td>Điện thoại</td>
+                                                    <td><button class="btn btn-waring" type="button">Edit</button></td>
+                                                    <td><button class="btn btn-danger" type="button">Delete</button>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Row 2 -->
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Samsung Galaxy S22 Ultra 5G</td>
+                                                    <td>30.998.000₫</td>
+                                                    <td>6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, ram 4G, Pin
+                                                        7000 mAh</td>
+                                                    <td>ProductDetail1</td>
+                                                    <td>5</td>
+                                                    <td>image1.jpg</td>
+                                                    <td>SAMSUNG</td>
+                                                    <td>Điện thoại</td>
+                                                    <td><button class="btn btn-waring" type="button">Edit</button></td>
+                                                    <td><button class="btn btn-danger" type="button">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Pagination -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <ul class="pagination" style="margin-left: 40px;">
+                                                <li><a href="#">1</a></li>
+                                                <li class="active"><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
+    <script type="text/javascript" src="./AdminPage.js"></script>
 </body>
 
 </html>

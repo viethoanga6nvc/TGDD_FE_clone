@@ -1,5 +1,6 @@
 .menu {
-    background:#fed100;
+    /* background:#fed100; */
+    background: rgb(217, 227, 242);
     font-size: 20px;
     font-weight: bold;
 }
@@ -8,4 +9,12 @@
 }
 span {
     margin-right: 5px;
+}
+.btnClass {
+    border: none;
+    background-color: white;
+    width: 100%;
+}
+.btnClass:focus {
+    color: blue;
 }
