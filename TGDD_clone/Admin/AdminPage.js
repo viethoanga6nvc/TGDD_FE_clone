@@ -23,3 +23,7 @@ function handleShowProduct() {
 function handleShowAccount() {
     $(".ProductAdminSection").load("./ContentAccount.html", "data", function (response, status, request) { });
 }
+
+function handleCreateNewProduct() {
+    alert("Create New!!")
+}
