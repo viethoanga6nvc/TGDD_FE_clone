@@ -1,3 +1,4 @@
+listProduct = [];
 $(function () {
     loadComponentAdmin();
 });
