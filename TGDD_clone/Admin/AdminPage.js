@@ -1,4 +1,4 @@
-listProduct = [];
+var listProduct = [];
 $(function () {
     loadComponentAdmin();
 });
@@ -28,28 +28,91 @@ function handleShowAccount() {
 }
 
 function handleCreateNewProduct() {
-    alert("Create New!!")
+    // alert("Create New!!")
+    var v_Id = $("#Id").val();
+    var v_Name = $("#Name").val();
+    var v_Price = $("#Price").val();
+    var v_Info = $("#Info").val();
+    var v_Detail = $("#Detail").val();
+    var v_Star = $("#Star").val();
+    var v_Image = getImageName($("#Image").val());
+    var v_Manufacturer = $("#Manufacturers").val();
+    var v_Category = $("#Category").val();
+
+    var ProductNew = {
+        id: v_Id,
+        name: v_Name,
+        price: v_Price,
+        info: v_Info,
+        detail: v_Detail,
+        star: v_Star,
+        imageName: v_Image,
+        manufacturer: v_Manufacturer,
+        category: v_Category,
+    };
+
+    listProduct.push(ProductNew);
+    localStorage.setItem("listProduct", JSON.stringify(listProduct));
+    handleResetForm();
+    featchListProduct();
 }
 
 function featchListProduct() {
+    listProduct = [];
+
+    if (localStorage && localStorage.getItem("listProduct")) {
+        var listProductLocalStorage = JSON.parse(localStorage.getItem("listProduct"));
+        listProduct = listProductLocalStorage;
+    }
+
     $("#tbProductAdmin").empty();
 
-    for (let index = 0; index < 6; index++) {
+    listProduct.forEach(element => {
         $("#tbProductAdmin").append(`
         <tr>
-            <td>1</td>
-            <td>Samsung Galaxy S22 Ultra 5G</td>
-            <td>30.998.000₫</td>
-            <td>6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, ram 4G, Pin
-                7000 mAh</td>
-            <td>ProductDetail1</td>
-            <td>5</td>
-            <td>image1.jpg</td>
-            <td>SAMSUNG</td>
-            <td>Điện thoại</td>
+            <td>${element.id}</td>
+            <td>${element.name}</td>
+            <td>${element.price}</td>
+            <td>${element.info}</td>
+            <td>${element.detail}</td>
+            <td>${element.star}</td>
+            <td>${element.imageName}</td>
+            <td>${element.manufacturer}</td>
+            <td>${element.category}</td>
             <td><button class="btn btn-waring" type="button">Edit</button></td>
             <td><button class="btn btn-danger" type="button">Delete</button></td>
         </tr>
         `);
-    }
+    });
+}
+
+function handleResetForm() {
+    $("#Id").val("");
+    $("#Name").val("");
+    $("#Price").val("");
+    $("#Info").val("");
+    $("#Detail").val("");
+    $("#Star").val("");
+    $("#Image").val("");
+    $("#Manufacturers").val("");
+    $("#Category").val("");
+}
+
+// function getImageName(pathImage) {
+
+//     var itemArray = pathImage.split("\\");
+
+//     var imageName = itemArray[itemArray.lenght - 1];
+
+
+//     return imageName;
+// }
+function getImageName(pathImage) {
+    // Chuyển đường dẫn thành mảng các phần tử
+    var itemArray = pathImage.split("\\");
+    // Lấy phần tử cuối cùng
+    var imageName = itemArray[itemArray.length - 1];
+
+
+    return imageName;
 }
