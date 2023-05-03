@@ -80,7 +80,7 @@ function featchListProduct() {
             <td>${element.manufacturer}</td>
             <td>${element.category}</td>
             <td><button class="btn btn-waring" type="button">Edit</button></td>
-            <td><button class="btn btn-danger" type="button">Delete</button></td>
+            <td><button class="btn btn-danger" type="button" onclick="handleDelete(${element.id})">Delete</button></td>
         </tr>
         `);
     });
@@ -115,4 +115,19 @@ function getImageName(pathImage) {
 
 
     return imageName;
+}
+
+function handleDelete(idDelete) {
+    var confirmDelete = confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
+    if (confirmDelete) {
+        var indexProductDelete = listProduct.findIndex((product) => product.id == idDelete);
+        if (indexProductDelete !== -1) {
+            listProduct.splice(indexProductDelete, 1);
+            localStorage.setItem("listProduct", JSON.stringify(listProduct));
+            featchListProduct();
+            alert("Xóa thành công!")
+        } else {
+            alert("Không thể xóa sản phẩm!")
+        }
+    }
 }
