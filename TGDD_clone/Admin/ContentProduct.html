@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Create -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content -->
@@ -169,6 +169,90 @@
 
                         <button type="button" class="btn btn-primary" onclick="handleCreateNewProduct()">Save</button>
                         <button type="reset" class="btn btn-waring">Reset</button>
+                    </form>
+                    <!--  -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Update -->
+    <div id="myModalUpdateProduct" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <h2>Update Product</h2>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Id">Id</label>
+                            <input type="number" class="form-control" id="IdUpdate" min="1" placeholder="Input Id"
+                                disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control" id="NameUpdate" placeholder="Input Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Price">Price</label>
+                            <input type="text" class="form-control" id="PriceUpdate" placeholder="Input Price">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Info">Info</label>
+                            <textarea class="form-control" id="InfoUpdate" rows="3" placeholder="Input Info"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Detail">Detail</label>
+                            <textarea class="form-control" id="DetailUpdate" rows="5"
+                                placeholder="Input Detail"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Star">Star</label>
+                            <input type="number" class="form-control" id="StarUpdate" min="0" max="5"
+                                placeholder="Input Star">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Image">Image</label>
+                            <input type="file" class="form-control" id="ImageUpdate" placeholder="Input Image">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Manufacturer</label>
+                            <select name="" id="ManufacturersUpdate" class="form-control" required="required">
+                                <option value="">-- Choose a Manufacturer --</option>
+                                <option value="SAMSUNG">SAMSUNG</option>
+                                <option value="APPLE">APPLE</option>
+                                <option value="XIAOMI">XIAOMI</option>
+                                <option value="OPPO">OPPO</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select id="CategoryUpdate" class="form-control" required="required">
+                                <option value="">-- Select Category</option>
+                                <option value="Điện thoại">Điện thoại</option>
+                                <option value="Tablet">Tablet</option>
+                                <option value="Laptop">Laptop</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="handleUpdateProduct()">Save</button>
+                        <button type="reset" class="btn btn-waring" onclick="handleResetProduct()">Reset</button>
                     </form>
                     <!--  -->
                 </div>

@@ -1,4 +1,5 @@
 var listProduct = [];
+var idProductUpdate = "";
 $(function () {
     loadComponentAdmin();
 });
@@ -28,7 +29,6 @@ function handleShowAccount() {
 }
 
 function handleCreateNewProduct() {
-    // alert("Create New!!")
     var v_Id = $("#Id").val();
     var v_Name = $("#Name").val();
     var v_Price = $("#Price").val();
@@ -55,6 +55,7 @@ function handleCreateNewProduct() {
     localStorage.setItem("listProduct", JSON.stringify(listProduct));
     handleResetForm();
     featchListProduct();
+    alert("Thêm mới thành công!")
 }
 
 function featchListProduct() {
@@ -79,7 +80,7 @@ function featchListProduct() {
             <td>${element.imageName}</td>
             <td>${element.manufacturer}</td>
             <td>${element.category}</td>
-            <td><button class="btn btn-waring" type="button">Edit</button></td>
+            <td><button class="btn btn-waring" type="button" onclick="handleEdit(${element.id})">Edit</button></td>
             <td><button class="btn btn-danger" type="button" onclick="handleDelete(${element.id})">Delete</button></td>
         </tr>
         `);
@@ -98,19 +99,8 @@ function handleResetForm() {
     $("#Category").val("");
 }
 
-// function getImageName(pathImage) {
-
-//     var itemArray = pathImage.split("\\");
-
-//     var imageName = itemArray[itemArray.lenght - 1];
-
-
-//     return imageName;
-// }
 function getImageName(pathImage) {
-    // Chuyển đường dẫn thành mảng các phần tử
     var itemArray = pathImage.split("\\");
-    // Lấy phần tử cuối cùng
     var imageName = itemArray[itemArray.length - 1];
 
 
@@ -130,4 +120,63 @@ function handleDelete(idDelete) {
             alert("Không thể xóa sản phẩm!")
         }
     }
+}
+
+function handleEdit(idEdit) {
+    idProductUpdate = idEdit;
+    var index = listProduct.findIndex((product) => product.id == idProductUpdate);
+
+    $("#IdUpdate").val(listProduct[index].id);
+    $("#NameUpdate").val(listProduct[index].name);
+    $("#PriceUpdate").val(listProduct[index].price);
+    $("#InfoUpdate").val(listProduct[index].info);
+    $("#DetailUpdate").val(listProduct[index].detail);
+    $("#StarUpdate").val(listProduct[index].star);
+    $("#ManufacturersUpdate").val(listProduct[index].manufacturer);
+    $("#CategoryUpdate").val(listProduct[index].category);
+
+    $("#myModalUpdateProduct").modal("show");
+}
+
+function handleResetProduct() {
+    $("#NameUpdate").val("");
+    $("#PriceUpdate").val("");
+    $("#InfoUpdate").val("");
+    $("#DetailUpdate").val("");
+    $("#StarUpdate").val("");
+    $("#ImageUpdate").val("");
+    $("#ManufacturersUpdate").val("");
+    $("#CategoryUpdate").val("");
+}
+
+function handleUpdateProduct() {
+    var index = listProduct.findIndex((product) => product.id == idProductUpdate);
+
+    var v_Name = $("#NameUpdate").val();
+    var v_Price = $("#PriceUpdate").val();
+    var v_Info = $("#InfoUpdate").val();
+    var v_Detail = $("#DetailUpdate").val();
+    var v_Star = $("#StarUpdate").val();
+    var v_Image = getImageName($("#ImageUpdate").val());
+    var v_Manufacturer = $("#ManufacturersUpdate").val();
+    var v_Category = $("#CategoryUpdate").val();
+
+    listProduct[index].name = v_Name;
+    listProduct[index].price = v_Price;
+    listProduct[index].info = v_Info;
+    listProduct[index].detail = v_Detail;
+    listProduct[index].star = v_Star;
+    if (v_Image !== null && v_Image !== "") {
+        listProduct[index].imageName = v_Image;
+    }
+    listProduct[index].manufacturer = v_Manufacturer;
+    listProduct[index].category = v_Category;
+
+    localStorage.setItem("listProduct", JSON.stringify(listProduct));
+
+    handleResetForm();
+
+    $("#myModalUpdateProduct").modal("hide");
+
+    featchListProduct();
 }
